@@ -30,33 +30,32 @@ Things you may want to cover:
 | nickname                         | string      | null: false , unique: true|
 | email                            | string      | null: false               |
 | encrypted_password               | string      | null: false               |
-| name(full width characters)      | string      | null: false               |
-| name_kana(full width characters) | string      | null: false               |
-| dateofbirth                      | string      | null: false               |
+| first_name                       | string      | null: false               |
+| last_name                        | string      | null: false               |
+| first_name_kana                  | string      | null: false               |
+| last_name_kana                   | string      | null: false               |
+| date_of_birth                    | datetime    | null: false               |
 
 
 
 ### Association
 - has_many :items
-- has_many :purshaserecord
+- has_many :purshaserecords
 
 ## delivery テーブル
 
 | Column                      | Type       | Options                        |
 | --------------------------- | ---------- | ------------------------------ |
-| items                       | references | null: false , foreign_key: true|
 | deliveryaddress             | string     | null: false                    |
 | postcode                    | string     | null: false                    |
-| prefectures                 | string     | null: false                    |
 | municipalitids              | string     | null: false                    |
 | address                     | string     | null: false                    |
-| building                    | string     | null: false                    |
+| building                    | string     |                                |
 | tel                         | string     | null: false                    |
 | purshaserecord              | references | null: false , foreign_key: true|
 
 
 ### Association
-- belongs_to :items
 - belongs_to :purshaserecord
 
 ## items テーブル
@@ -85,16 +84,9 @@ Things you may want to cover:
 | Column                     | Type       | Options                        |
 | -------------------------- | ---------- | ------------------------------ |
 | user                       | references | null: false , foreign_key: true|
-| items                      | references | null: false , foreign_key: true|
-| 
-| 
-| 
-| 
-| 
-| 
-| 
+| item                       | references | null: false , foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :purshaserecord
-- belongs_to :items
+- belongs_to :delivery
+- belongs_to :item
