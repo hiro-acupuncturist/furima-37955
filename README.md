@@ -47,7 +47,7 @@ Things you may want to cover:
 
 | Column                      | Type       | Options                        |
 | --------------------------- | ---------- | ------------------------------ |
-| deliveryaddress             | string     | deliveryaddress_id null: false |
+| deliveryaddress_id          | integer    | null: false                    |
 | postcode                    | string     | null: false                    |
 | municipalitids              | string     | null: false                    |
 | address                     | string     | null: false                    |
@@ -67,11 +67,11 @@ Things you may want to cover:
 | -------------------------- | ---------- | ------------------------------ |
 | name                       | string     | null: false                    |
 | instructions               | text       | null: false                    |
-| deliveryaddress            | string     | deliveryaddress_id null: false |
-| category                   | string     | category_id      null: false   |
-| quality                    | string     | quality_id       null: false   |
-| deliverycharg              | string     | deliverycharg_id null: false   |
-| deliveryday                | string     | deliveryday_id   null: false   |
+| deliveryaddress_id         | integer    | null: false                    |
+| category_id                | integer    | null: false                    |
+| quality_id                 | integer    | null: false                    |
+| deliverycharg_id           | integer    | null: false                    |
+| deliveryday_id             | integer    | null: false                    |
 | price                      | integer    | null: false                    |
 | user                       | references | null: false , foreign_key: true|
 
