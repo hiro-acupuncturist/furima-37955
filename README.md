@@ -34,29 +34,32 @@ Things you may want to cover:
 | last_name                        | string      | null: false               |
 | first_name_kana                  | string      | null: false               |
 | last_name_kana                   | string      | null: false               |
-| date_of_birth                    | datetime    | null: false               |
-
-
+| date_of_birth                    | date        | null: false               |
 
 ### Association
 - has_many :items
-- has_many :purshaserecords
+- has_many :purchaserecords
+
+
+
 
 ## delivery テーブル
 
 | Column                      | Type       | Options                        |
 | --------------------------- | ---------- | ------------------------------ |
-| deliveryaddress             | string     | null: false                    |
+| deliveryaddress             | string     | deliveryaddress_id null: false |
 | postcode                    | string     | null: false                    |
 | municipalitids              | string     | null: false                    |
 | address                     | string     | null: false                    |
 | building                    | string     |                                |
 | tel                         | string     | null: false                    |
-| purshaserecord              | references | null: false , foreign_key: true|
-
+| purchaserecord              | references | null: false , foreign_key: true|
 
 ### Association
-- belongs_to :purshaserecord
+- belongs_to :purchaserecord
+
+
+
 
 ## items テーブル
 
@@ -64,22 +67,22 @@ Things you may want to cover:
 | -------------------------- | ---------- | ------------------------------ |
 | name                       | string     | null: false                    |
 | instructions               | text       | null: false                    |
-| category                   | string     | null: false                    |
-| quality                    | string     | null: false                    |
-| deliverycharg              | string     | null: false                    |
-| deliveryday                | string     | null: false                    |
+| deliveryaddress            | string     | deliveryaddress_id null: false |
+| category                   | string     | category_id      null: false   |
+| quality                    | string     | quality_id       null: false   |
+| deliverycharg              | string     | deliverycharg_id null: false   |
+| deliveryday                | string     | deliveryday_id   null: false   |
 | price                      | integer    | null: false                    |
-| commission                 | integer    | null: false                    |
-| profit                     | integer    | null: false                    |
 | user                       | references | null: false , foreign_key: true|
 
-
-
 ### Association  
-- has_one :delivery
-- has_one :purshaserecord
+- belongs_to :user
+- has_one :purchaserecord
 
-## purshaserecord テーブル
+
+
+
+## purchaserecord テーブル
 
 | Column                     | Type       | Options                        |
 | -------------------------- | ---------- | ------------------------------ |
@@ -88,5 +91,5 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :delivery
+- has_one    :delivery
 - belongs_to :item
