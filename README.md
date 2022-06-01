@@ -22,3 +22,74 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## users　テーブル
+
+| Column                           | Type        | Options                   |
+| -------------------------------- | ----------- | ------------------------- |
+| nickname                         | string      | null: false , unique: true|
+| email                            | string      | null: false               |
+| encrypted_password               | string      | null: false               |
+| first_name                       | string      | null: false               |
+| last_name                        | string      | null: false               |
+| first_name_kana                  | string      | null: false               |
+| last_name_kana                   | string      | null: false               |
+| date_of_birth                    | date        | null: false               |
+
+### Association
+- has_many :items
+- has_many :purchaserecords
+
+
+
+
+## delivery テーブル
+
+| Column                      | Type       | Options                        |
+| --------------------------- | ---------- | ------------------------------ |
+| deliveryaddress_id          | integer    | null: false                    |
+| postcode                    | string     | null: false                    |
+| municipalitids              | string     | null: false                    |
+| address                     | string     | null: false                    |
+| building                    | string     |                                |
+| tel                         | string     | null: false                    |
+| purchaserecord              | references | null: false , foreign_key: true|
+
+### Association
+- belongs_to :purchaserecord
+
+
+
+
+## items テーブル
+
+| Column                     | Type       | Options                        |
+| -------------------------- | ---------- | ------------------------------ |
+| name                       | string     | null: false                    |
+| instructions               | text       | null: false                    |
+| deliveryaddress_id         | integer    | null: false                    |
+| category_id                | integer    | null: false                    |
+| quality_id                 | integer    | null: false                    |
+| deliverycharg_id           | integer    | null: false                    |
+| deliveryday_id             | integer    | null: false                    |
+| price                      | integer    | null: false                    |
+| user                       | references | null: false , foreign_key: true|
+
+### Association  
+- belongs_to :user
+- has_one :purchaserecord
+
+
+
+
+## purchaserecord テーブル
+
+| Column                     | Type       | Options                        |
+| -------------------------- | ---------- | ------------------------------ |
+| user                       | references | null: false , foreign_key: true|
+| item                       | references | null: false , foreign_key: true|
+
+### Association
+- belongs_to :user
+- has_one    :delivery
+- belongs_to :item
