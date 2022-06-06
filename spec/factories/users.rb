@@ -11,13 +11,3 @@ FactoryBot.define do
     date_of_birth        {Faker::Date.in_date_period} 
   end
 end
-
-    # nickname             {Faker::Name.initials(number: 2)}
-    # email                {Faker::Internet.free_email}
-    # password             {Faker::Internet.password}
-    # encrypted_password   {password}
-    # first_name           {Faker::Name.initials}
-    # last_name            {Faker::Name.initials}
-    # first_name_kana      {Faker::Name.initials}
-    # last_name_kana       {Faker::Name.initials}
-    # date_of_birth        {Faker::Date.in_date_period} 
