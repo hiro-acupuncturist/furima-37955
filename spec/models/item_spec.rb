@@ -33,31 +33,31 @@ RSpec.describe Item, type: :model do
       end
 
       it 'カテゴリー選択をしていないとダメ' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
       it '商品状態の選択をしていないとダメ' do
-        @item.quality_id = ''
+        @item.quality_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Quality can't be blank")
       end
       
       it '配送料負担の選択をしていないとダメ' do
-        @item.deliverycharg_id = ''
+        @item.deliverycharg_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Deliverycharg can't be blank")
       end
 
       it '発送元の地域の選択をしていないとダメ' do
-        @item.deliveryaddress_id = ''
+        @item.deliveryaddress_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Deliveryaddress can't be blank")
       end
 
       it '発送までの日数の選択をしていないとダメ' do
-        @item.deliveryday_id = ''
+        @item.deliveryday_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Deliveryday can't be blank")
       end
@@ -83,7 +83,7 @@ RSpec.describe Item, type: :model do
       it '価格は半角数字での入力でないとだめ' do
         @item.price = '１'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number", "Price is invalid")
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
     end
