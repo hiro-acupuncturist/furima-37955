@@ -67,12 +67,12 @@ Things you may want to cover:
 | -------------------------- | ---------- | ------------------------------ |
 | name                       | string     | null: false                    |
 | instructions               | text       | null: false                    |
+| price                      | integer    | null: false                    |
 | deliveryaddress_id         | integer    | null: false                    |
 | category_id                | integer    | null: false                    |
 | quality_id                 | integer    | null: false                    |
 | deliverycharg_id           | integer    | null: false                    |
 | deliveryday_id             | integer    | null: false                    |
-| price                      | integer    | null: false                    |
 | user                       | references | null: false , foreign_key: true|
 
 ### Association  
