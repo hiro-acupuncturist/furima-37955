@@ -12,15 +12,16 @@ class Item < ApplicationRecord
   has_one    :purchaserecord
 
   with_options presence: true do
-    validates :deliveryaddress_id,  numericality: { other_than: 0 , message: "can't be blank"}
-    validates :category_id,         numericality: { other_than: 1 , message: "can't be blank"}
-    validates :quality_id,          numericality: { other_than: 1 , message: "can't be blank"}
-    validates :deliverycharg_id,    numericality: { other_than: 1 , message: "can't be blank"}
-    validates :deliveryday_id,      numericality: { other_than: 1 , message: "can't be blank"}
+    validates :deliveryaddress_id,  numericality: { other_than: 0, message: "can't be blank" }
+    validates :category_id,         numericality: { other_than: 1, message: "can't be blank" }
+    validates :quality_id,          numericality: { other_than: 1, message: "can't be blank" }
+    validates :deliverycharg_id,    numericality: { other_than: 1, message: "can't be blank" }
+    validates :deliveryday_id,      numericality: { other_than: 1, message: "can't be blank" }
 
     validates :image
-    validates :name           
-    validates :instructions 
-    validates :price,            numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, only_integer: true }
+    validates :name
+    validates :instructions
+    validates :price,
+              numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true }
   end
 end
