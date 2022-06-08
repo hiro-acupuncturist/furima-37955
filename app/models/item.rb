@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :deliverycharg
   belongs_to :deliveryday
   belongs_to :user
+  has_one    :purchaserecord
 
   with_options presence: true do
     validates :deliveryaddress_id,  numericality: { other_than: 0 , message: "can't be blank"}
