@@ -3,7 +3,7 @@ class CreateDeliveries < ActiveRecord::Migration[6.0]
     create_table :deliveries do |t|
 
       t.integer     :deliveryaddress_id  ,null: false
-      t.string      :postcod             ,null: false
+      t.string      :postcode            ,null: false
       t.string      :municipalitids      ,null: false
       t.string      :address             ,null: false
       t.string      :building         #建物名　任意の値
