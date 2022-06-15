@@ -28,10 +28,17 @@ RSpec.describe PurchaserecordDelivery, type: :model do
 
 
         it 'postcodeが空では登録できない' do
-          @purchaserecord_delivery.postcode = ''
+          @purchaserecord_delivery.postcode = ' '
           @purchaserecord_delivery.valid?
-          expect(@purchaserecord_delivery.errors.full_messages).to include("Postcode can't be blank", "Postcode is invalid. Include hyphen(-)")
+          expect(@purchaserecord_delivery.errors.full_messages).to include("Postcode can't be blank")
         end  
+
+        it 'postcodeがハイフンなしでは登録できない' do
+          @purchaserecord_delivery.postcode = '1112222 '
+          @purchaserecord_delivery.valid?
+          expect(@purchaserecord_delivery.errors.full_messages).to include("Postcode is invalid. Include hyphen(-)")
+        end  
+
 
         it 'deliveryaddress_idを選択していないと登録できない' do
           @purchaserecord_delivery.deliveryaddress_id = 0
@@ -54,7 +61,7 @@ RSpec.describe PurchaserecordDelivery, type: :model do
         it 'telが空では登録できない' do
           @purchaserecord_delivery.tel = ''
           @purchaserecord_delivery.valid?
-          expect(@purchaserecord_delivery.errors.full_messages).to include("Tel can't be blank", "Tel PhoneNumber must be 10or11 digit Half-width numbers")
+          expect(@purchaserecord_delivery.errors.full_messages).to include("Tel can't be blank")
         end  
 
         it 'telが全角数字では登録できない' do

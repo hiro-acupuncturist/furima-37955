@@ -16,7 +16,7 @@ class PurchaserecordDelivery
 
   def save
     purchaserecord = Purchaserecord.create(item_id: item_id, user_id: user_id)
-    Delivery.create(deliveryaddress_id: deliveryaddress_id, postcode: postcode, municipalitids: municipalitids, address: address, building: building, tel: tel, purchaserecord: purchaserecord)
+    Delivery.create(deliveryaddress_id: deliveryaddress_id, postcode: postcode, municipalitids: municipalitids, address: address, building: building, tel: tel, purchaserecord_id: purchaserecord.id)
   end
 
 
