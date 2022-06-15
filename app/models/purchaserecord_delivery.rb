@@ -9,6 +9,7 @@ class PurchaserecordDelivery
     validates :municipalitids
     validates :address
     validates :user_id
+    validates :token
     validates :item_id
     validates :tel,                format: { with: /\A\d{10,11}\z/, message: "PhoneNumber must be 10or11 digit Half-width numbers" }
   end

@@ -20,6 +20,14 @@ RSpec.describe PurchaserecordDelivery, type: :model do
       end
 
       context '入力に問題がある場合' do
+
+        it "tokenが空では登録できないこと" do
+          @purchaserecord_delivery.token = nil
+          @purchaserecord_delivery.valid?
+          expect(@purchaserecord_delivery.errors.full_messages).to include("Token can't be blank")
+        end
+
+
         it 'postcodeが空では登録できない' do
           @purchaserecord_delivery.postcode = ''
           @purchaserecord_delivery.valid?
@@ -83,3 +91,4 @@ RSpec.describe PurchaserecordDelivery, type: :model do
       end
  end
 end
+# bundle exec rspec spec/models/purchaserecord_delivery_spec.rb テスト用
