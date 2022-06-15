@@ -63,13 +63,13 @@ RSpec.describe PurchaserecordDelivery, type: :model do
           expect(@purchaserecord_delivery.errors.full_messages).to include("Tel PhoneNumber must be 10or11 digit Half-width numbers")
         end  
 
-        it 'telが10桁以下では登録できない' do
+        it 'telが9桁以下では登録できない' do
           @purchaserecord_delivery.tel = '111'
           @purchaserecord_delivery.valid?
           expect(@purchaserecord_delivery.errors.full_messages).to include("Tel PhoneNumber must be 10or11 digit Half-width numbers")
         end  
 
-        it 'telが11桁以上では登録できない' do
+        it 'telが12桁以上では登録できない' do
           @purchaserecord_delivery.tel = '123456789876'
           @purchaserecord_delivery.valid?
           expect(@purchaserecord_delivery.errors.full_messages).to include("Tel PhoneNumber must be 10or11 digit Half-width numbers")
