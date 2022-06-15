@@ -55,6 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def user_block
-  redirect_to root_path unless current_user.id == @item.user_id
+  redirect_to root_path unless current_user.id == @item.user_id && @item.purchaserecord.blank?
   end
 end

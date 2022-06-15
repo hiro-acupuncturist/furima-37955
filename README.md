@@ -47,13 +47,13 @@ Things you may want to cover:
 
 | Column                      | Type       | Options                        |
 | --------------------------- | ---------- | ------------------------------ |
-| deliveryaddress_id          | integer    | null: false                    |
-| postcode                    | string     | null: false                    |
-| municipalitids              | string     | null: false                    |
-| address                     | string     | null: false                    |
-| building                    | string     |                                |
-| tel                         | string     | null: false                    |
-| purchaserecord              | references | null: false , foreign_key: true|
+| deliveryaddress_id          | integer    | null: false                    | 配送先住所
+| postcode                    | string     | null: false                    | 郵便番号
+| municipalitids              | string     | null: false                    | 市区町村
+| address                     | string     | null: false                    | 番地
+| building                    | string     |                                | 建物名
+| tel                         | string     | null: false                    | 電話番号
+| purchaserecord              | references | null: false , foreign_key: true| 購入記録
 
 ### Association
 - belongs_to :purchaserecord
