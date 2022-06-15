@@ -9,9 +9,6 @@ class OrdersController < ApplicationController
 
   end
 
-  def new
-  end
-
   def create
     @purchaserecord_delivery = PurchaserecordDelivery.new(purchaserecord_delivery)
     if @purchaserecord_delivery.valid?

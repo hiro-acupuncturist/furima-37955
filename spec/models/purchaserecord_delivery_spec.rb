@@ -16,7 +16,6 @@ RSpec.describe PurchaserecordDelivery, type: :model do
           @purchaserecord_delivery.building = ''
           expect(@purchaserecord_delivery).to be_valid
         end
-  
       end
 
       context '入力に問題がある場合' do
@@ -88,7 +87,20 @@ RSpec.describe PurchaserecordDelivery, type: :model do
           expect(@purchaserecord_delivery.errors.full_messages).to include("Postcode is invalid. Include hyphen(-)")
         end  
 
+        it 'ユーザーが紐づいていなければ投稿できない' do
+          @purchaserecord_delivery.user_id = nil
+          @purchaserecord_delivery.valid?
+          expect(@purchaserecord_delivery.errors.full_messages).to include("User can't be blank")
+        end
+
+        it 'アイテムが紐づいていなければ投稿できない' do
+          @purchaserecord_delivery.item_id = nil
+          @purchaserecord_delivery.valid?
+          expect(@purchaserecord_delivery.errors.full_messages).to include("Item can't be blank")
+        end
+
       end
+
  end
 end
 # bundle exec rspec spec/models/purchaserecord_delivery_spec.rb テスト用
